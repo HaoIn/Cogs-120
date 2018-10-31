@@ -14,7 +14,7 @@
 <body>
 
 <!--NavBar-->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky top">
   <a class="navbar-brand" href="#">INSTAFIT</a>
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
@@ -36,11 +36,39 @@
 </nav>
 
 
-<div class="container-fluid" style="margin-top:80px">
-  <h1>Today's Suggestion</h1>
-  <p>A fixed navigation bar stays visible in a fixed position (top or bottom) independent of the page scroll.</p>
-  <h1>Scroll this page to see the effect</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <h1 class="display-1" style="text-align: center;">Today's Suggestion</h1>
+    </div>
+  </div>
 </div>
 
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!--Top-->
+    <div class="col-sm-4">
+      <!--need to align center-->
+      <h1 class="display-4">Top:</h1>
+    </div>
+
+    <!--top img-->
+    <div class="col-sm-4">
+      <img src="img/supreme_Shirt.jpg" class="img-thumbnail">
+    </div>
+
+    <!--Weather widget-->
+    <div class="col-sm-4">
+      <a href="https://www.accuweather.com/en/us/san-diego-ca/92101/weather-forecast/347628" class="aw-widget-legal"></a>
+      <div id="awcc1541022471849" class="aw-widget-current"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1541022471849">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
 </body>
 </html>
