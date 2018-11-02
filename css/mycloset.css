@@ -27,8 +27,8 @@
 }
 
 #editButton{
-  margin-left:80%;
-  padding:2px 20px
+  padding: 2px 20px;
+  float:right;
 }
 
 .col{
@@ -46,4 +46,9 @@ img {
 .row{
   display: flex;
   margin-left: 25%;
+}
+
+.itemName{
+  text-align: center;
+  margin-right: 30px;
 }
