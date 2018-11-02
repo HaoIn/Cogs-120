@@ -2,8 +2,11 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 25%;
     background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
 }
 
 .vertical-nav li a {
@@ -17,4 +20,35 @@
 .vertical-nav li a:hover {
     background-color: #555;
     color: white;
+}
+.dropdown {
+  margin-left:25%;
+  padding:1px;
+}
+
+#editButton{
+  padding: 2px 20px;
+  float:right;
+}
+
+.col{
+  padding-top: 3px;
+}
+
+
+img {
+  height: 220px;
+  width: 250px;
+  padding:1px;
+  border:1px solid #021a40;
+}
+
+.row{
+  display: flex;
+  margin-left: 25%;
+}
+
+.itemName{
+  text-align: center;
+  margin-right: 30px;
 }
