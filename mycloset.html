@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/mycloset.css"
+  <link rel="stylesheet" href="css/mycloset.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -32,14 +33,48 @@
     </ul>
   </nav>
 
-<div class="container">
+
   <ul class="vertical-nav">
-    <li><a href="#home" >Home</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#" >All</a></li>
+    <li><a href="#">Tops</a></li>
+    <li><a href="#">Bottoms</a></li>
+    <li><a href="#">Shoes</a></li>
+    <li><a href="#">Accessories</a></li>
   </ul>
-</div>
+
+  <div class="container-fluid">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort By &#8595;
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" id = "colorSort" type="button">Color</button>
+        <button class="dropdown-item" id = "mostWornSort" type="button">Most Worn</button>
+        <button class="dropdown-item" id = "newestFirstSort" type="button">Newest First</button>
+        <button class="dropdown-item" id = "weatherSort" type="button">Weather</button>
+      </div>
+      <button class="btn btn-secondary btn-lg" type="button" id = "editButton" >Edit</button>
+    </div>
+
+    <div class="Title">
+      <h1 class="display-3" style="margin-left: 50%;">My Closet</h1>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <img src="img/belt.jpg" alt="belt">
+      </div>
+      <div class="col">
+        <img src="img/blacksuptshirt.jpg" alt="blacksuptshirt" >
+      </div>
+      <div class="col">
+        <img src="img/eazy.jpg" alt="Eazy350">
+      </div>
+    </div>
+
+  </div>
+
+
 
 </body>
 </html>
