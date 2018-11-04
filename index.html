@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>INSTAFIT</title>
   <meta charset="utf-8">
@@ -15,98 +16,107 @@
 
 <body>
 
-<!--NavBar-->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-  <a class="navbar-brand" href="#">INSTAFIT</a>
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="index.html">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="mycloset.html">My Closet</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="Suggested_Outfits.html">Outfit Matching</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="Profile.html">Profile</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="Setting.html">Setting</a>
-    </li>
-  </ul>
-</nav>
+  <!--NavBar-->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="index.html">INSTAFIT</a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="mycloset.html">My Closet</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Suggested_Outfits.html">Outfit Matching</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Profile.html">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Setting.html">Setting</a>
+      </li>
+    </ul>
+  </nav>
 
 
-<div class="container-fluid">
-  <div class="row mb-5">
-    <div class="col-sm">
-      <h1 class="display-1" style="text-align: center;">Today's Suggestion</h1>
+  <div class="container-fluid">
+    <div class="row mb-5">
+      <div class="col-sm">
+        <h1 class="display-1" style="text-align: center;">Today's Suggestion</h1>
+      </div>
     </div>
   </div>
-</div>
 
 
-<div class="container-fluid">
-  <div class="row">
+  <div class="container-fluid">
+    <div class="row">
 
-    <!--Top-->
-    <div class="col-sm-2">
-      <!--need to align center-->
-      <h1>Top:</h1>
+      <!--Top-->
+      <div class="col-sm-2">
+        <!--need to align center-->
+        <h1>Top:</h1>
+      </div>
+
+      <!--top img-->
+      <div class="col-sm-6">
+        <img src="img/supreme_Shirt.jpg" class="img-fluid">
+      </div>
+
+      <!--Weather widget-->
+      <div class="col-sm-4">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="San Diego" data-label_2="WEATHER" data-theme="original">San Diego WEATHER</a>
+      </div>
+
     </div>
 
-    <!--top img-->
-    <div class="col-sm-6">
-      <img src="img/supreme_Shirt.jpg" class="img-fluid">
+
+    <div class="row">
+      <div class="col-sm-2">
+        <h1>Bottom:</h1>
+      </div>
+
+      <div class="col-sm-10">
+        <img src="img/guccipants.jpg" class="img-fluid">
+      </div>
+
     </div>
 
-    <!--Weather widget-->
-    <div class="col-sm-4">
-    <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="San Diego" data-label_2="WEATHER" data-theme="original" >San Diego WEATHER</a>
+    <div class="row">
+      <div class="col-sm-2">
+        <h1>Shoes:</h1>
+      </div>
+
+      <div class="col-sm-10">
+        <img src="img/eazy.jpg" class="img-fluid">
+      </div>
+
     </div>
+
+    <div class="row">
+      <div class="col-sm-2 mr-3">
+        <h1>Accessories:</h1>
+      </div>
+
+      <div class="col-sm-9">
+        <img src="img/icyrolex.jpg" class="img-fluid">
+      </div>
+
+    </div>
+
 
   </div>
 
-
-  <div class="row">
-    <div class="col-sm-2">
-      <h1>Bottom:</h1>
-    </div>
-
-    <div class="col-sm-10">
-      <img src="img/supreme_Shirt.jpg" class="img-fluid">
-    </div>
-
-  </div>
-
-  <div class="row">
-    <div class="col-sm-2">
-      <h1>Shoes:</h1>
-    </div>
-
-    <div class="col-sm-10">
-      <img src="img/supreme_Shirt.jpg" class="img-fluid">
-    </div>
-
-  </div>
-
-  <div class="row">
-    <div class="col-sm-2 mr-3">
-      <h1>Accessories:</h1>
-    </div>
-
-    <div class="col-sm-9">
-      <img src="img/supreme_Shirt.jpg" class="img-fluid">
-    </div>
-
-  </div>
-
-
-</div>
-
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script>
+  <script>
+    ! function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, 'script', 'weatherwidget-io-js');
+  </script>
 </body>
+
 </html>
