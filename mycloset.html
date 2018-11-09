@@ -39,11 +39,11 @@
 
 
   <ul class="vertical-nav">
-    <li><a href="#" id="allTab">All</a></li>
-    <li><a href="#" id="topsTab">Tops</a></li>
-    <li><a href="#" id="bottomsTap">Bottoms</a></li>
-    <li><a href="#" id="shoesTap">Shoes</a></li>
-    <li><a href="#" id="accessoriesTab">Accessories</a></li>
+    <li><a href="#" id="allTab" onclick="filterSelection('all')">All</a></li>
+    <li><a href="#" id="topsTab" onclick="filterSelection('tops')">Tops</a></li>
+    <li><a href="#" id="bottomsTap" onclick="filterSelection('bottoms')">Bottoms</a></li>
+    <li><a href="#" id="shoesTap" onclick="filterSelection('shoes')">Shoes</a></li>
+    <li><a href="#" id="accessoriesTab" onclick="filterSelection('accessories')">Accessories</a></li>
   </ul>
 
   <div class="container-fluid" id="ok">
@@ -68,52 +68,39 @@
       <h1 class="display-3" style="margin-left: 50%;">My Closet</h1>
     </div>
 
-    <!--
-    <div class="row">
-      <div class="col">
-
-
-        <img src="img/belt.jpg" alt="belt" id="GucciBelt">
-        <h5 class=" itemName">Gucci Belt</h5>
-      </div>
-      <div class="col">
-        <img src="img/blacksuptshirt.jpg" alt="blacksuptshirt">
-        <h5 class="itemName">Black Sup T-Shirt</h5>
-      </div>
-      <div class="col">
-        <img src="img/eazy.jpg" alt="Eazy350">
-        <h5 class="itemName">Eazy 350</h5>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col">
-        <img src="img/supreme_Shirt.jpg" alt="belt">
-        <h5 class="itemName">White Sup T-Shirt</h5>
+
+        <img src="img/belt.jpg" alt="belt" id="GucciBelt" class="accessories">
+        <h5 class=" itemName accessories">Gucci Belt</h5>
       </div>
       <div class="col">
-        <img src="img/guccipants.jpg" alt="blacksuptshirt" id = "bannerImg">
-        <h5 class="itemName">Gucci Pants</h5>
+        <img src="img/blacksuptshirt.jpg" alt="blacksuptshirt" class="tops">
+        <h5 class="itemName tops">Black Sup T-Shirt</h5>
       </div>
       <div class="col">
-        <img src="img/icyrolex.jpg" alt="Rolex">
-        <h5 class="itemName">Rolex</h5>
+        <img src="img/eazy.jpg" alt="Eazy350" class="shoes">
+        <h5 class="itemName shoes">Eazy 350</h5>
       </div>
     </div>
--->
 
-    <script id="item-template" type="text/x-handlebars-template">
+    <div class="row">
       <div class="col">
-    <img src="{{profilePic}}" alt="pic" class="img">
-    <h5 class="itemName">{{title}}</h5>
-  </div>
-</script>
-
-    <div class="row" id="templatedRow">
-
+        <img src="img/supreme_Shirt.jpg" alt="belt" class="accessories">
+        <h5 class="itemName accessories">White Sup T-Shirt</h5>
+      </div>
+      <div class="col">
+        <img src="img/guccipants.jpg" alt="blacksuptshirt" class="tops">
+        <h5 class="itemName tops">Gucci Pants</h5>
+      </div>
+      <div class="col">
+        <img src="img/icyrolex.jpg" alt="Rolex" class="accessories">
+        <h5 class="itemName accessories">Rolex</h5>
+      </div>
     </div>
 
-  </div>
+
 
 
 

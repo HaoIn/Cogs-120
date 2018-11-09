@@ -87,3 +87,11 @@ img {
   font-size: 20px;
   font-weight: bold;
 }
+
+.container-fluid{
+    overflow: hidden;
+}
+
+.show {
+    display: block;
+}
