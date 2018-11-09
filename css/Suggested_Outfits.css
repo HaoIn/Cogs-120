@@ -1,0 +1,43 @@
+.img-fluid-Top {
+    position: relative;
+    float: left;
+    width:  200px;
+    height: 200px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+
+.img-fluid-Bottom {
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 300px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+}
+
+.img-fluid-Shoes {
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+}
+
+.img-fluid-Accessories {
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+}
+.btn{
+  position: right: 100px;
+}
