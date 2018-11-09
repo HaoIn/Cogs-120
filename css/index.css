@@ -1,1 +1,8 @@
-
+img{
+  height: 220px;
+  width: 250px;
+  padding: 1px;
+  border: 10px solid #051837;
+  position: relative;
+  margin-right: 100px;
+}

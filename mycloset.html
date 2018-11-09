@@ -46,7 +46,7 @@
     <li><a href="#" id="accessoriesTab">Accessories</a></li>
   </ul>
 
-  <div class="container-fluid">
+  <div class="container-fluid" id="ok">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Sort By &#8595;
@@ -58,7 +58,7 @@
         <button class="dropdown-item" id="weatherSort" type="button">Weather</button>
       </div>
       <button class="btn btn-secondary btn-lg" type="button" id="editButton">Edit</button>
-      <button class="btn btn-secondary btn-lg" type="button" id="addButton" style="display:none;">New Item</button>
+      <button class="btn btn-secondary btn-lg" type="button" id="addButton" style="display:none;">Upload</button>
       <button class="btn btn-secondary btn-lg" type="button" id="saveButton" style="display:none;">Save</button>
     </div>
 
@@ -68,6 +68,7 @@
       <h1 class="display-3" style="margin-left: 50%;">My Closet</h1>
     </div>
 
+    <!--
     <div class="row">
       <div class="col">
 
@@ -91,25 +92,30 @@
         <h5 class="itemName">White Sup T-Shirt</h5>
       </div>
       <div class="col">
-        <img src="img/guccipants.jpg" alt="blacksuptshirt">
+        <img src="img/guccipants.jpg" alt="blacksuptshirt" id = "bannerImg">
         <h5 class="itemName">Gucci Pants</h5>
       </div>
       <div class="col">
-        <img src="img/icyrolex.jpg" alt="Eazy350">
+        <img src="img/icyrolex.jpg" alt="Rolex">
         <h5 class="itemName">Rolex</h5>
       </div>
+    </div>
+-->
+
+    <script id="item-template" type="text/x-handlebars-template">
+      <div class="col">
+    <img src="{{profilePic}}" alt="pic" class="img">
+    <h5 class="itemName">{{title}}</h5>
+  </div>
+</script>
+
+    <div class="row" id="templatedRow">
+
     </div>
 
   </div>
 
-  <script id="item-template" type="text/x-handlebars-template">
-    <div class="project" id="project{{index}}">
-    <a href="#" class="thumbnail">
-      <img src="{{profilePic}}" alt="Lorem Pixel image" class="img">
-      <p>{{title}}</p>
-    </a>
-  </div>
-  </script>
+
 
 
 </body>
