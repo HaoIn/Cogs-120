@@ -40,6 +40,8 @@
 <h1>Outfit Matching</h1>
 
 <div class="container-fluid">
+  <button class="btn btn-secondary btn-lg" type="button" id="editButton">Save Outfit</button>
+</div>
 
     <!--Top-->
     <div class="row">
@@ -49,12 +51,12 @@
 
     <!--top img-->
     <div class="col-sm-6">
-      <img src="img/blacksuptshirt.jpg" class="img-fluid-Top" style="width:100%">
-      <img src="img/supreme_Shirt.jpg" class="img-fluid-Top" style="width:100%">
+      <img src="img/blacksuptshirt.jpg" class="img-fluid-Top" >
+      <img src="img/supreme_Shirt.jpg" class="img-fluid-Top">
         <button class="w3-button w3-black w3-display-left"
           onclick="plusDivs(-1, 1)">&#10094;</button>
-        <button class="w3-button w3-black w3-display-right"
-          onclick="plusDivs(1, 1)">&#10095;</button>
+        <button class="w3-button w3-black w3-display-right" style=
+        "position: relative" onclick="plusDivs(1, 1)">&#10095;</button>
     </div>
 
 
@@ -68,12 +70,12 @@
     </div>
 
     <div class="col-sm-10">
-      <img src="img/guccipants.jpg" class="img-fluid-Bottom" style="width:100%">
-      <img src="img/nike_pants.jpg" class="img-fluid-Bottom" style="width:100%">
+      <img src="img/guccipants.jpg" class="img-fluid-Bottom" >
+      <img src="img/nike_pants.jpg" class="img-fluid-Bottom" >
       <button class="w3-button w3-black w3-display-left"
         onclick="plusDivs(-1, 0)">&#10094;</button>
-      <button class="w3-button w3-black w3-display-right"
-        onclick="plusDivs(1, 0)">&#10095;</button>
+      <button class="w3-button w3-black w3-display-right" style=
+        "position:relative" onclick="plusDivs(1, 0)">&#10095;</button>
     </div>
 
   </div>
@@ -85,12 +87,12 @@
     </div>
 
     <div class="col-sm-10">
-      <img src="img/eazy.jpg" class="img-fluid-Shoes" style="width:100%">
-      <img src="img/eazygrey.jpg" class="img-fluid-Shoes" style="width:100%">
-      <button class="w3-button w3-black w3-display-left"
-        onclick="plusDivs(-1, 2)">&#10094;</button>
-      <button class="w3-button w3-black w3-display-right"
-        onclick="plusDivs(1, 2)">&#10095;</button>
+      <img src="img/eazy.jpg" class="img-fluid-Shoes" >
+      <img src="img/eazygrey.jpg" class="img-fluid-Shoes">
+      <button class="w3-button w3-black w3-display-left" style=
+        "position:left" onclick="plusDivs(-1, 2)">&#10094;</button>
+      <button class="w3-button w3-black w3-display-right" style=
+        "position:relative" onclick="plusDivs(1, 2)">&#10095;</button>
     </div>
 
   </div>
@@ -102,20 +104,24 @@
     </div>
 
     <div class="col-sm-9">
-      <img src="img/icyrolex.jpg" class="img-fluid"
-      style = "width:200px;height:200px;">
+      <img src="img/icyrolex.jpg" class="img-fluid-Accessories">
+      <img src="img/icedoutap.jpg" class="img-fluid-Accessories">
+      <button class="w3-button w3-black w3-display-left"
+       onclick="plusDivs(-1, 3)">&#10094;</button>
+      <button class="w3-button w3-black w3-display-right" style=
+        "position: relative" onclick="plusDivs(1, 3)">&#10095;</button>
     </div>
 
   </div>
 
-
-</div>
-
 <script>
-var slideIndex = [1,1];
-var slideId = ["img-fluid-Bottom", "img-fluid-Top" , "img-fluid-Shoes"]
+var slideIndex = [1,1,1,1];
+var slideId = ["img-fluid-Bottom", "img-fluid-Top", "img-fluid-Shoes",
+"img-fluid-Accessories" ]
 showDivs(1, 0);
 showDivs(1, 1);
+showDivs(1, 2);
+showDivs(1, 3);
 
 function plusDivs(n, no) {
   showDivs(slideIndex[no] += n, no);
