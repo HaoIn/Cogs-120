@@ -38,12 +38,12 @@
   </nav>
 
 
-  <ul class="vertical-nav">
-    <li><a href="#" id="allTab">All</a></li>
-    <li><a href="#" id="topsTab">Tops</a></li>
-    <li><a href="#" id="bottomsTap">Bottoms</a></li>
-    <li><a href="#" id="shoesTap">Shoes</a></li>
-    <li><a href="#" id="accessoriesTab">Accessories</a></li>
+  <ul class="vertical-nav" id="myBtnContainer">
+    <button class="btn" onclick="filterSelection('all')">All</button>
+    <button class="btn" onclick="filterSelection('tops')">Tops</button>
+    <button class="btn" onclick="filterSelection('bottoms')">Bottoms</button>
+    <button class="btn" onclick="filterSelection('shoes')">Shoes</button>
+    <button class="btn" onclick="filterSelection('accessories')">Accessories</button>
   </ul>
 
   <div class="container-fluid" id="ok">
@@ -58,7 +58,11 @@
         <button class="dropdown-item" id="weatherSort" type="button">Weather</button>
       </div>
       <button class="btn btn-secondary btn-lg" type="button" id="editButton">Edit</button>
-      <button class="btn btn-secondary btn-lg" type="button" id="addButton" style="display:none;">Upload</button>
+      <button class="btn btn-secondary btn-lg" type="button" id="addButton" style="display:none;">
+        Upload
+        <input type="file" name="pic" accept="image/*">
+        <input type="submit">
+      </button>
       <button class="btn btn-secondary btn-lg" type="button" id="saveButton" style="display:none;">Save</button>
     </div>
 
@@ -67,6 +71,7 @@
     <div class="Title">
       <h1 class="display-3" style="margin-left: 50%;">My Closet</h1>
     </div>
+
 
 
     <div class="row">
@@ -80,19 +85,19 @@
         <h5 class="itemName tops">Black Sup T-Shirt</h5>
       </div>
       <div class="col">
-        <img src="img/eazy.jpg" alt="Eazy350" class="shoes">
+        <img src="img/eazy.jpg" alt="Eazy350" class="filterDiv shoes">
         <h5 class="itemName shoes">Eazy 350</h5>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <img src="img/supreme_Shirt.jpg" alt="belt" class="filterDiv accessories">
-        <h5 class="itemName accessories">White Sup T-Shirt</h5>
+        <img src="img/supreme_Shirt.jpg" alt="belt" class="filterDiv tops">
+        <h5 class="itemName tops">White Sup T-Shirt</h5>
       </div>
       <div class="col">
-        <img src="img/guccipants.jpg" alt="blacksuptshirt" class="filterDiv tops">
-        <h5 class="itemName tops">Gucci Pants</h5>
+        <img src="img/guccipants.jpg" alt="blacksuptshirt" class="filterDiv bottoms">
+        <h5 class="itemName bottoms">Gucci Pants</h5>
       </div>
       <div class="col">
         <img src="img/icyrolex.jpg" alt="Rolex" class="filterDiv accessories">
@@ -100,6 +105,49 @@
       </div>
     </div>
 
+    <script>
+      filterSelection("all")
+
+      function filterSelection(c) {
+        var x, i, y;
+        x = document.getElementsByClassName("filterDiv");
+        y = document.getElementsByClassName("itemName");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          w3RemoveClass(y[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+          if (y[i].className.indexOf(c) > -1) w3AddClass(y[i], "show");
+
+        }
+      }
+
+      // Show filtered elements
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+          }
+        }
+      }
+
+      // Hide elements that are not selected
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+          }
+        }
+        element.className = arr1.join(" ");
+      }
+    </script>
 
 
 

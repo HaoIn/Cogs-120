@@ -1,3 +1,31 @@
+var complexData = [{
+    'title': 'blacksuptshirt',
+    'profilePic': 'img/blacksuptshirt.jpg',
+    'index': 2
+  },
+  {
+    'title': 'Eazy 350',
+    'profilePic': 'img/eazy.jpg',
+    'index': 3
+  },
+  {
+    'title': 'Gucci Belt',
+    'profilePic': 'img/belt.jpg',
+    'index': 4
+  },
+  {
+    'title': 'White Sup T-Shirt',
+    'profilePic': 'img/supreme_Shirt.jpg',
+    'index': 5
+  },
+  {
+    'title': 'Gucci Pant',
+    'profilePic': 'img/guccipants.jpg',
+    'index': 6
+  },
+]
+
+
 $(document).ready(function() {
   console.log('hello world');
   editMode();
@@ -6,12 +34,6 @@ $(document).ready(function() {
     $('#allTab, #topsTab,#bottomsTap, #shoesTap, #accessoriesTab').removeClass('tabActive');
     $(this).addClass('tabActive');
   });
-
-
-
-  // Add active class to the current button (highlight it)
-
-
 
   //preload bunch of fake image
   //ask the people enter the data we want.
@@ -43,18 +65,26 @@ $(document).ready(function() {
   $('body').append($img);
   */
 
-  /*  var source = $("#item-template").html();
-    var template = Handlebars.compile(source);
 
-    var parentDiv = $("#templatedRow");
 
-    for (var i = 0; i < complexData.length; i++) {
-      var curData = complexData[i];
-      var curHtml = template(curData);
-      parentDiv.append(curHtml);
+  /* Handlebars.registerHelper('grouped_each', function(every, context, options) {
+      var out = "", subcontext = [], i;
+      if (context && context.length > 0) {
+          for (i = 0; i < context.length; i++) {
+              if (i > 0 && i % every === 0) {
+                  out += options.fn(subcontext);
+                  subcontext = [];
+              }
+              subcontext.push(context[i]);
+          }
+          out += options.fn(subcontext);
+      }
+      return out;
+  }); */
 
-    }
-  */
+  
+  // Add active class to the current control button (highlight it)
+
 })
 
 function editMode() {
