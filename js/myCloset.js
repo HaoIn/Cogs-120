@@ -35,55 +35,6 @@ $(document).ready(function() {
     $(this).addClass('tabActive');
   });
 
-  //preload bunch of fake image
-  //ask the people enter the data we want.
-  /*  var elephant = document.getElementById("uploadImg");
-
-    elephant.addEventListener("load", function() {
-      var imgCanvas = document.createElement("canvas"),
-        imgContext = imgCanvas.getContext("2d");
-
-      // Make sure canvas is as big as the picture
-      imgCanvas.width = elephant.width;
-      imgCanvas.height = elephant.height;
-
-      // Draw image into canvas element
-      imgContext.drawImage(elephant, 0, 0, elephant.width, elephant.height);
-
-      // Get canvas contents as a data URL
-      var imgAsDataURL = imgCanvas.toDataURL("image/png");
-
-      // Save image into localStorage
-      try {
-        localStorage.setItem("elephant", imgAsDataURL);
-      } catch (e) {
-        console.log("Storage failed: " + e);
-      }
-    }, false);
-
-    var $img = $('<img />', { src: localStorage.getItem('elephant') });
-  $('body').append($img);
-  */
-
-
-
-  /* Handlebars.registerHelper('grouped_each', function(every, context, options) {
-      var out = "", subcontext = [], i;
-      if (context && context.length > 0) {
-          for (i = 0; i < context.length; i++) {
-              if (i > 0 && i % every === 0) {
-                  out += options.fn(subcontext);
-                  subcontext = [];
-              }
-              subcontext.push(context[i]);
-          }
-          out += options.fn(subcontext);
-      }
-      return out;
-  }); */
-
-  
-  // Add active class to the current control button (highlight it)
 
 })
 

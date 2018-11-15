@@ -37,11 +37,11 @@
 
 
   <ul class="vertical-nav" id="myBtnContainer">
-    <button class="btn" onclick="filterSelection('all')">All</button>
-    <button class="btn" onclick="filterSelection('tops')">Tops</button>
-    <button class="btn" onclick="filterSelection('bottoms')">Bottoms</button>
-    <button class="btn" onclick="filterSelection('shoes')">Shoes</button>
-    <button class="btn" onclick="filterSelection('accessories')">Accessories</button>
+    <button class="btnf active" onclick="filterSelection('all')">All</button>
+    <button class="btnf" onclick="filterSelection('tops')">Tops</button>
+    <button class="btnf" onclick="filterSelection('bottoms')">Bottoms</button>
+    <button class="btnf" onclick="filterSelection('shoes')">Shoes</button>
+    <button class="btnf" onclick="filterSelection('accessories')">Accessories</button>
   </ul>
 
   <div class="container-fluid" id="ok">
@@ -56,10 +56,8 @@
         <button class="dropdown-item" id="weatherSort" type="button">Weather</button>
       </div>
       <button class="btn btn-secondary btn-lg" type="button" id="editButton">Edit</button>
-      <button class="btn btn-secondary btn-lg" type="button" id="addButton" style="display:none;">
-        Upload
-        <input type="file" name="pic" accept="image/*">
-        <input type="submit">
+      <button class="btn btn-secondary btn-lg" type="button" id="addButton" data-toggle="modal" data-target="#myModal" style="display:none;">
+        New Item
       </button>
       <button class="btn btn-secondary btn-lg" type="button" id="saveButton" style="display:none;">
         <a href="myCloset.html">
@@ -68,6 +66,18 @@
       </button>
     </div>
 
+    <dialog id="favDialog">
+      <form method="dialog">
+        <label for="itemName">Item Name:</label>
+        <input type="text" name="itemName" id="itemName"><br>
+        <label for="image">URL:<label>
+            <input type="text" name="image" id="image">
+            <menu>
+              <button>Cancel</button>
+              <button>Confirm</button>
+            </menu>
+      </form>
+    </dialog>
 
 
     <div class="Title">
@@ -75,59 +85,91 @@
     </div>
 
 
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Item</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Item Name:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">URL:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
 
     <div class="row">
-      <div class="col">
-
-        <img src="img/belt.jpg" alt="belt" id="GucciBelt" class="filterDiv accessories">
-        <h5 class=" itemName accessories">Gucci Belt</h5>
+      <div class="zoom filterDiv accessories">
+        <img src="img/belt.jpg" alt="belt" id="GucciBelt" class="filterDiv accessories" data-toggle="modal" data-target="#myModal">
+        <h5 class=" itemName ">Gucci Belt</h5>
       </div>
-      <div class="col">
+      <div class="zoom filterDiv tops">
         <img src="img/blacksuptshirt.jpg" alt="blacksuptshirt" class="filterDiv tops">
-        <h5 class="itemName tops">Black Sup T-Shirt</h5>
+        <h5 class="itemName  ">Black Sup T-Shirt</h5>
       </div>
-      <div class="col">
+      <div class="zoom filterDiv shoes">
         <img src="img/eazy.jpg" alt="Eazy350" class="filterDiv shoes">
-        <h5 class="itemName shoes">Eazy 350</h5>
+        <h5 class="itemName  ">Eazy 350</h5>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
+      <div class="zoom filterDiv tops">
         <img src="img/supreme_Shirt.jpg" alt="belt" class="filterDiv tops">
-        <h5 class="itemName tops">White Sup T-Shirt</h5>
+        <h5 class="itemName  ">White Sup T-Shirt</h5>
       </div>
-      <div class="col">
+      <div class="zoom filterDiv  bottoms">
         <img src="img/guccipants.jpg" alt="blacksuptshirt" class="filterDiv bottoms">
-        <h5 class="itemName bottoms">Gucci Pants</h5>
+        <h5 class="itemName ">Gucci Pants</h5>
       </div>
-      <div class="col">
+      <div class="zoom filterDiv accessories">
         <img src="img/icyrolex.jpg" alt="Rolex" class="filterDiv accessories">
-        <h5 class="itemName accessories">Rolex</h5>
+        <h5 class="itemName  ">Rolex</h5>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
+      <div class="zoom filterDiv  shoes">
         <img src="img/eazygrey.jpg" alt="belt" class="filterDiv shoes">
-        <h5 class="itemName shoes">Eazy 350 Grey</h5>
+        <h5 class="itemName ">Eazy 350 Grey</h5>
       </div>
-      <div class="col">
+      <div class="zoom filterDiv accessories">
         <img src="img/icedoutap.jpg" alt="blacksuptshirt" class="filterDiv accessories">
-        <h5 class="itemName accessories">Audemar Piguet</h5>
+        <h5 class="itemName  ">Audemar Piguet</h5>
       </div>
-      <div class="col">
+      <div class="zoom filterDiv bottoms">
         <img src="img/nikepants.jpeg" alt="Rolex" class="filterDiv bottoms">
-        <h5 class="itemName accessories">Red Nike Pant</h5>
+        <h5 class="itemName  ">Red Nike Pant</h5>
       </div>
+
+      <div class="zoom filterDiv bottoms">
+        <img src="img/nike_pants.jpg" alt="" class="filterDiv bottoms">
+        <h5 class=" itemName ">Nike Pant</h5>
+      </div>
+
     </div>
 
-    <div class="row">
-      <div class="col">
-        <img src="img/nike_pants.jpg" alt="" class="filterDiv bottoms">
-        <h5 class="itemName bottoms">Nike Pant</h5>
-      </div>
-    </div>
+
 
     <script>
       filterSelection("all")
@@ -135,14 +177,14 @@
       function filterSelection(c) {
         var x, i, y;
         x = document.getElementsByClassName("filterDiv");
-        y = document.getElementsByClassName("itemName");
+
         if (c == "all") c = "";
         // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
         for (i = 0; i < x.length; i++) {
           w3RemoveClass(x[i], "show");
-          w3RemoveClass(y[i], "show");
+
           if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-          if (y[i].className.indexOf(c) > -1) w3AddClass(y[i], "show");
+
 
         }
       }
@@ -170,6 +212,16 @@
           }
         }
         element.className = arr1.join(" ");
+      }
+
+      var btnContainer = document.getElementById("myBtnContainer");
+      var btns = btnContainer.getElementsByClassName("btnf");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
       }
     </script>
 
