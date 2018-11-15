@@ -66,18 +66,6 @@
       </button>
     </div>
 
-    <dialog id="favDialog">
-      <form method="dialog">
-        <label for="itemName">Item Name:</label>
-        <input type="text" name="itemName" id="itemName"><br>
-        <label for="image">URL:<label>
-            <input type="text" name="image" id="image">
-            <menu>
-              <button>Cancel</button>
-              <button>Confirm</button>
-            </menu>
-      </form>
-    </dialog>
 
 
     <div class="Title">
@@ -98,14 +86,14 @@
 
           <!-- Modal body -->
           <div class="modal-body">
-            <form>
+            <form id="editItem">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Item Name:</label>
-                <input type="text" class="form-control" id="recipient-name">
+                <label for="item-name" class="col-form-label">Item Name:</label>
+                <input type="text" class="form-control" id="item-name">
               </div>
               <div class="form-group">
-                <label for="message-text" class="col-form-label">URL:</label>
-                <textarea class="form-control" id="message-text"></textarea>
+                <label for="url" class="col-form-label">URL:</label>
+                <textarea class="form-control" id="url"></textarea>
               </div>
             </form>
           </div>
@@ -113,7 +101,7 @@
           <!-- Modal footer -->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="button" onclick="a()" class="btn btn-primary" data-dismiss="modal">Save</button>
           </div>
 
         </div>
@@ -125,47 +113,7 @@
 
 
     <div class="row">
-      <div class="zoom filterDiv accessories">
-        <img src="img/belt.jpg" alt="belt" id="GucciBelt" class="filterDiv accessories" data-toggle="modal" data-target="#myModal">
-        <h5 class=" itemName ">Gucci Belt</h5>
-      </div>
-      <div class="zoom filterDiv tops">
-        <img src="img/blacksuptshirt.jpg" alt="blacksuptshirt" class="filterDiv tops">
-        <h5 class="itemName  ">Black Sup T-Shirt</h5>
-      </div>
-      <div class="zoom filterDiv shoes">
-        <img src="img/eazy.jpg" alt="Eazy350" class="filterDiv shoes">
-        <h5 class="itemName  ">Eazy 350</h5>
-      </div>
-      <div class="zoom filterDiv tops">
-        <img src="img/supreme_Shirt.jpg" alt="belt" class="filterDiv tops">
-        <h5 class="itemName  ">White Sup T-Shirt</h5>
-      </div>
-      <div class="zoom filterDiv  bottoms">
-        <img src="img/guccipants.jpg" alt="blacksuptshirt" class="filterDiv bottoms">
-        <h5 class="itemName ">Gucci Pants</h5>
-      </div>
-      <div class="zoom filterDiv accessories">
-        <img src="img/icyrolex.jpg" alt="Rolex" class="filterDiv accessories">
-        <h5 class="itemName  ">Rolex</h5>
-      </div>
-      <div class="zoom filterDiv  shoes">
-        <img src="img/eazygrey.jpg" alt="belt" class="filterDiv shoes">
-        <h5 class="itemName ">Eazy 350 Grey</h5>
-      </div>
-      <div class="zoom filterDiv accessories">
-        <img src="img/icedoutap.jpg" alt="blacksuptshirt" class="filterDiv accessories">
-        <h5 class="itemName  ">Audemar Piguet</h5>
-      </div>
-      <div class="zoom filterDiv bottoms">
-        <img src="img/nikepants.jpeg" alt="Rolex" class="filterDiv bottoms">
-        <h5 class="itemName  ">Red Nike Pant</h5>
-      </div>
 
-      <div class="zoom filterDiv bottoms">
-        <img src="img/nike_pants.jpg" alt="" class="filterDiv bottoms">
-        <h5 class=" itemName ">Nike Pant</h5>
-      </div>
 
     </div>
 
@@ -223,8 +171,23 @@
           this.className += " active";
         });
       }
+
+
+      function a() {
+        let myStorage = window.localStorage;
+        let itemName = $('#item-name').val();
+        let URL = $('#url').val();
+        myStorage.setItem("title", itemName);
+        myStorage.setItem("profilePic", URL);
+      }
     </script>
 
+    <script type="text/x-handlebars-template" id="item-template">
+      <div class="zoom filterDiv {{type}}">
+        <img src="{{url}}" alt="" class="">
+        <h5 class=" itemName ">{{name}}</h5>
+      </div>
+    </script>
 
 
 

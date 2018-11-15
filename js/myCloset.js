@@ -1,28 +1,54 @@
 var complexData = [{
-    'title': 'blacksuptshirt',
-    'profilePic': 'img/blacksuptshirt.jpg',
-    'index': 2
+    'name': 'blacksuptshirt',
+    'url': 'img/blacksuptshirt.jpg',
+    'type': 'tops'
   },
   {
-    'title': 'Eazy 350',
-    'profilePic': 'img/eazy.jpg',
-    'index': 3
+    'name': 'Eazy 350',
+    'url': 'img/eazy.jpg',
+    'type': 'shoes'
   },
   {
-    'title': 'Gucci Belt',
-    'profilePic': 'img/belt.jpg',
-    'index': 4
+    'name': 'Gucci Belt',
+    'url': 'img/belt.jpg',
+    'type': 'accessories'
   },
   {
-    'title': 'White Sup T-Shirt',
-    'profilePic': 'img/supreme_Shirt.jpg',
-    'index': 5
+    'name': 'White Sup T-Shirt',
+    'url': 'img/supreme_Shirt.jpg',
+    'type': 'tops'
   },
   {
-    'title': 'Gucci Pant',
-    'profilePic': 'img/guccipants.jpg',
-    'index': 6
+    'name': 'Gucci Pant',
+    'url': 'img/guccipants.jpg',
+    'type': 'bottoms'
   },
+  {
+    'name': 'Rolex',
+    'url': 'img/icyrolex.jpg',
+    'type': 'accessories'
+  },
+  {
+    'name': 'Grey Eazy 350',
+    'url': 'img/eazygrey.jpg',
+    'type': 'shoes'
+  },
+  {
+    'name': 'Audemar Piguet',
+    'url': 'img/icedoutap.jpg',
+    'type': 'accessories'
+  },
+  {
+    'name': 'Red Nike Pant',
+    'url': 'img/nikepants.jpeg',
+    'type': 'bottoms'
+  },
+  {
+    'name': 'Black Nike Pant',
+    'url': 'img/nike_pants.jpg',
+    'type': 'bottoms'
+  }
+
 ]
 
 
@@ -35,7 +61,16 @@ $(document).ready(function() {
     $(this).addClass('tabActive');
   });
 
+  var source   = $("#item-template").html();
+  var template = Handlebars.compile(source);
+  var parentDiv = $(".row");
 
+  for (var i = 0; i < complexData.length; i++) {
+    var curData = complexData[i];
+    var curHtml = template(curData);
+    parentDiv.append(curHtml);
+  }
+  filterSelection("all");
 })
 
 function editMode() {
