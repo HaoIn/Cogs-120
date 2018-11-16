@@ -107,7 +107,8 @@ function reload() {
     var curHtml = template(curData[i]);
     console.log(curHtml);
     parentDiv.append(curHtml);
+
   }
   filterSelection("all");
-  window.location.reload();
+  setTimeout(window.location.reload(),1000)
 }
