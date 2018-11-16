@@ -55,15 +55,11 @@
         <button class="dropdown-item" id="newestFirstSort" type="button">Newest First</button>
         <button class="dropdown-item" id="weatherSort" type="button">Weather</button>
       </div>
-      <button class="btn btn-secondary btn-lg" type="button" id="editButton">Edit</button>
-      <button class="btn btn-secondary btn-lg" type="button" id="addButton" data-toggle="modal" data-target="#myModal" style="display:none;">
+
+      <button class="btn btn-secondary btn-lg" type="button" id="addButton" data-toggle="modal" data-target="#myModal">
         New Item
       </button>
-      <button class="btn btn-secondary btn-lg" type="button" id="saveButton" style="display:none;">
-        <a href="myCloset.html">
-          Save
-        </a>
-      </button>
+
     </div>
 
 
@@ -80,7 +76,7 @@
 
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Edit Item</h4>
+            <h4 class="modal-title">Add New Item</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
 
@@ -90,10 +86,20 @@
               <div class="form-group">
                 <label for="item-name" class="col-form-label">Item Name:</label>
                 <input type="text" class="form-control" id="item-name">
+                <small id="warning" class="form-text text-muted">No Space allowed</small>
               </div>
               <div class="form-group">
-                <label for="url" class="col-form-label">URL:</label>
+                <label for="url" class="col-form-label">Image URL:</label>
                 <textarea class="form-control" id="url"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="types">Category:</label>
+                <select name="types" id="types" class="form-control">
+                  <option value="tops">Tops</option>
+                  <option value="bottoms">Bottoms</option>
+                  <option value="shoes">Shoes</option>
+                  <option value="accessories">Accessories</option>
+                </select>
               </div>
             </form>
           </div>
@@ -101,7 +107,7 @@
           <!-- Modal footer -->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" onclick="a()" class="btn btn-primary" data-dismiss="modal">Save</button>
+            <button type="button" id="add" class="btn btn-primary" data-dismiss="modal">Save</button>
           </div>
 
         </div>
@@ -173,20 +179,107 @@
       }
 
 
-      function a() {
-        let myStorage = window.localStorage;
-        let itemName = $('#item-name').val();
-        let URL = $('#url').val();
-        myStorage.setItem("title", itemName);
-        myStorage.setItem("profilePic", URL);
+      function saveChange(name,url,type,fname,furl,ftype){
+
+        let existingData = JSON.parse(localStorage.getItem('itemData'));
+        for (i = 0; i < existingData.length; i++){
+
+
+          if (name == existingData[i].name){
+            console.log(name);
+            if (fname != name){
+              console.log(name);
+              console.log(fname);
+              existingData[i].name = fname;
+
+            }
+            if (furl != url){
+              existingData[i].url = furl;
+            }
+            if (ftype != type){
+              existingData[i].type = ftype;
+            }
+          }
+
+        }
+        localStorage.setItem('itemData', JSON.stringify(existingData));
+        reload();
+
       }
+
+      function deleteItem(name){
+        let existingData = JSON.parse(localStorage.getItem('itemData'));
+        for (i = 0; i < existingData.length; i++){
+          if (name == existingData[i].name){
+            existingData.splice(i, 1);
+            document.getElementById("data_" + name).innerHTML = "";
+          }
+        }
+        localStorage.setItem('itemData', JSON.stringify(existingData));
+        reload();
+      }
+
+
+
+
+
+
+
+
     </script>
 
     <script type="text/x-handlebars-template" id="item-template">
-      <div class="zoom filterDiv {{type}}">
+      <div class="zoom filterDiv {{type}}" data-toggle="modal" data-target="#data_{{name}}">
         <img src="{{url}}" alt="" class="">
         <h5 class=" itemName ">{{name}}</h5>
       </div>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="data_{{name}}" tabindex="-1" role="dialog" aria-labelledby="data_{{name}}_label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <form class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="data_{{name}}_label">{{name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group" >
+                <img class="" src="{{url}}">
+              </div>
+
+              <div class="form-group">
+                <label for="item-name-modal">Item Name:</label>
+                <input type="text" class="form-control" id="item-name-modal-{{name}}" value="{{name}}">
+              </div>
+
+              <div class="form-group">
+                <label for="item-url-modal">Url:</label>
+                <textarea type="text" class="form-control" id="item-url-modal" rows="2">{{url}}</textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="item-type-modal">Category:</label>
+                <select class="form-control" id="item-type-modal">
+                  <option value="tops">tops</option>
+                  <option value="bottoms">bottoms</option>
+                  <option value="shoes">shoes</option>
+                  <option value="accessories">accessories</option>
+                </select>
+              </div>
+          </div>
+            <div class="modal-footer">
+              <button class="btn btn-danger" type="button" data-dismiss="modal" id="delete" onclick="deleteItem('{{name}}')">Delete</button>
+              <button class="btn btn-primary" type="button"  data-dismiss="modal" id="edit" onclick="saveChange('{{name}}','{{url}}','{{type}}',$('#item-name-modal-{{name}}').val(), $('#data_{{name}} #item-url-modal').val(),$('#data_{{name}} #item-type-modal').val())">Save</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
     </script>
 
 
