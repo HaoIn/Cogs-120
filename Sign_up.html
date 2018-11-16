@@ -18,28 +18,17 @@
 
 <body>
 
-<h1 style="font-size:60px;">INSTAFIT</h1>
+<h1 style="font-size:60px;color: white; background-color: #373131; text-align: center;" >INSTAFIT</h1>
 
-<h2>Live Stylishly Today, Sign up Here!</h2>
+<h2 style="text-align:center !important">Live Stylishly Today, Sign up Here!</h2>
 
 <html>
 
 <style>
-<<<<<<< HEAD
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: lightblue;
-  }
-    * {box-sizing: border-box}
-=======
 
-body {
-    background-color: lightblue;
-}
 
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
->>>>>>> 800fb8fa6da82cfea33b126f62bd1f0a57b833d6
 
 
 /* Full-width input fields */
@@ -78,16 +67,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
       opacity:1;
 }
 
-/* Extra styles for the cancel button */
-  .cancelbtn {
-      padding: 14px 20px;
-      background-color: #f44336;
-}
 
 /* Float cancel and signup buttons and add an equal width */
-  .cancelbtn, .signupbtn {
+  .signupbtn {
     float: left;
-    width: 50%;
+    width: 30%;
+    text-align: center;
 }
 
 /* Add padding to container elements */
@@ -95,6 +80,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
       padding: 16px;
 }
 
+.clearfix{
+  display:flex;
+  justify-content: center;
+}
 /* Clear floats */
   .clearfix::after {
       content: "";
@@ -102,10 +91,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
       display: table;
 }
 
+.form-group {
+  text-align: center;
+}
+
+input{
+  width: 40% !important
+}
+
+
+
 /* Change styles for cancel button and signup button on extra small screens */
   @media screen and (max-width: 300px) {
       .cancelbtn, .signupbtn {
-       width: 100%;
+       width: 50%;
     }
 }
 </style>
@@ -117,23 +116,23 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <p>Please fill in this form to create an account.</p>
     <hr>
 
-    <label for="email"><b>Email</b></label>
+    <label for="email"><b>Email</b></label><br>
     <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
+    <br>
+    <label for="psw"><b>Password</b></label><br>
     <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
+<br>
+    <label for="psw-repeat"><b>Repeat Password</b></label><br>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+<br>
 
-    <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
+      <label  for="checkbox">Remember me</label>
+      <input id="checkbox" style="display:inline;width:10px !important" type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">
 
     <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+      <button type="submit" class="signupbtn"<a href="index.html"></a>Sign Up</button>
     </div>
+
   </div>
 </form>
 
