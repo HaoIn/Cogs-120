@@ -50,9 +50,8 @@
         Sort By &#8595;
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" id="newestFirstSort" type="button">Revert</button>
         <button class="dropdown-item" id="colorSort" type="button">Color</button>
-        <button class="dropdown-item" id="mostWornSort" type="button">Most Worn</button>
-        <button class="dropdown-item" id="newestFirstSort" type="button">Newest First</button>
         <button class="dropdown-item" id="weatherSort" type="button">Weather</button>
       </div>
 
@@ -92,6 +91,7 @@
                 <label for="url" class="col-form-label">Image URL:</label>
                 <textarea class="form-control" id="url"></textarea>
               </div>
+
               <div class="form-group">
                 <label for="types">Category:</label>
                 <select name="types" id="types" class="form-control">
@@ -101,6 +101,13 @@
                   <option value="accessories">Accessories</option>
                 </select>
               </div>
+
+              <div class="form-group">
+                <label for="item-color" class="col-form-label">Color:</label>
+                <input type="text" class="form-control" id="color">
+              </div>
+
+
             </form>
           </div>
 
@@ -179,25 +186,24 @@
       }
 
 
-      function saveChange(name,url,type,fname,furl,ftype){
+      function saveChange(name,url,type,color,fname,furl,ftype,fcolor){
 
         let existingData = JSON.parse(localStorage.getItem('itemData'));
         for (i = 0; i < existingData.length; i++){
 
 
           if (name == existingData[i].name){
-            console.log(name);
             if (fname != name){
-              console.log(name);
-              console.log(fname);
               existingData[i].name = fname;
-
             }
             if (furl != url){
               existingData[i].url = furl;
             }
             if (ftype != type){
               existingData[i].type = ftype;
+            }
+            if (fcolor != color){
+              existingData[i].color = fcolor;
             }
           }
 
@@ -218,7 +224,6 @@
         localStorage.setItem('itemData', JSON.stringify(existingData));
         reload();
       }
-
 
 
 
@@ -270,10 +275,16 @@
                   <option value="accessories">accessories</option>
                 </select>
               </div>
+
+              <div class="form-group">
+                <label for="item-color-modal">Color:</label>
+                <input type="text" class="form-control" id="item-color-modal" value="{{color}}">
+              </div>
+
           </div>
             <div class="modal-footer">
               <button class="btn btn-danger" type="button" data-dismiss="modal" id="delete" onclick="deleteItem('{{name}}')">Delete</button>
-              <button class="btn btn-primary" type="button"  data-dismiss="modal" id="edit" onclick="saveChange('{{name}}','{{url}}','{{type}}',$('#item-name-modal-{{name}}').val(), $('#data_{{name}} #item-url-modal').val(),$('#data_{{name}} #item-type-modal').val())">Save</button>
+              <button class="btn btn-primary" type="button"  data-dismiss="modal" id="edit" onclick="saveChange('{{name}}','{{url}}','{{type}}','{{color}}',$('#item-name-modal-{{name}}').val(), $('#data_{{name}} #item-url-modal').val(),$('#data_{{name}} #item-type-modal').val(), $('#data_{{name}} #item-color-modal').val())">Save</button>
 
             </div>
           </form>

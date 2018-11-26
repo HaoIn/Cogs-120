@@ -1,52 +1,62 @@
 var complexData = [{
     'name': 'BlackSuptShirt',
     'url': 'img/blacksuptshirt.jpg',
-    'type': 'tops'
+    'type': 'tops',
+    'color': 'Black'
   },
   {
     'name': 'Eazy350',
     'url': 'img/eazy.jpg',
-    'type': 'shoes'
+    'type': 'shoes',
+    'color':'Black'
   },
   {
     'name': 'GucciBelt',
     'url': 'img/belt.jpg',
-    'type': 'accessories'
+    'type': 'accessories',
+    'color': 'Black'
   },
   {
     'name': 'WhiteSupT-Shirt',
     'url': 'img/supreme_Shirt.jpg',
-    'type': 'tops'
+    'type': 'tops',
+    'color': 'White'
   },
   {
     'name': 'GucciPant',
     'url': 'img/guccipants.jpg',
-    'type': 'bottoms'
+    'type': 'bottoms',
+    'color': 'Red'
   },
   {
     'name': 'Rolex',
     'url': 'img/icyrolex.jpg',
-    'type': 'accessories'
+    'type': 'accessories',
+    'color': 'Gold'
   },
   {
     'name': 'GreyEazy350',
     'url': 'img/eazygrey.jpg',
-    'type': 'shoes'
+    'type': 'shoes',
+    'color':'Grey'
   },
   {
     'name': 'AudemarPiguet',
     'url': 'img/icedoutap.jpg',
-    'type': 'accessories'
+    'type': 'accessories',
+    'color': 'Silver'
   },
   {
     'name': 'RedNikePant',
     'url': 'img/nikepants.jpeg',
-    'type': 'bottoms'
+    'type': 'bottoms',
+    'color': 'Red'
   },
   {
     'name': 'BlackNikePant',
     'url': 'img/nike_pants.jpg',
-    'type': 'bottoms'
+    'type': 'bottoms',
+    'color':'Black'
   }
 
 ]
@@ -81,16 +91,46 @@ $(document).ready(function() {
     let itemName = $('#item-name').val();
     let url = $('#url').val();
     let type = $('#types').val();
+    let color = $('#color').val();
     let item = {
       'name': itemName,
       'url': url,
-      'type': type
+      'type': type,
+      'color': color
     };
     existingData.push(item);
     myStorage.setItem('itemData', JSON.stringify(existingData));
     reload();
     filterSelection("all");
   });
+
+  $('#newestFirstSort').click(function(event) {
+    let existingData = JSON.parse(localStorage.getItem('itemData'));
+    let temp;
+    for (let i =0; i < (existingData.length - 1)/2; i++){
+      temp = existingData[i];
+      existingData[i] = existingData[existingData.length - 1 - i];
+      existingData[existingData.length - 1 - i] = temp;
+    }
+    localStorage.setItem('itemData',JSON.stringify(existingData));
+    reload();
+    filterSelection('all');
+  });
+
+  $('#colorSort').click(function(event) {
+    let existingData = JSON.parse(localStorage.getItem('itemData'));
+    existingData.sort(function(a,b){
+      let x = a.color.toLowerCase();
+      let y = b.color.toLowerCase();
+      if(x < y){return -1;}
+      if(x > y){return 1;}
+      return 0
+    });
+    localStorage.setItem('itemData',JSON.stringify(existingData));
+    reload();
+    filterSelection('all');
+  });
+
 
 
 
@@ -105,7 +145,6 @@ function reload() {
   var curData = JSON.parse(localStorage.getItem('itemData'));
   for (var i = 0; i < curData.length; i++) {
     var curHtml = template(curData[i]);
-    console.log(curHtml);
     parentDiv.append(curHtml);
 
   }
