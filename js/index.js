@@ -62,6 +62,7 @@ var complexData = [{
 ]
 
 $(document).ready(function() {
+
   console.log('hello world');
 
     if (!(localStorage.key(0) === "itemData")){
@@ -69,9 +70,7 @@ $(document).ready(function() {
     }
 
     load();
-
-
-
+    
     $('#event').change(function(){
       switch ($(this).val()) {
         case 'Work':

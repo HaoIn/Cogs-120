@@ -76,9 +76,10 @@ $(document).ready(function() {
   var source = $("#item-template").html();
   var template = Handlebars.compile(source);
   var parentDiv = $(".row");
+  var curData = JSON.parse(localStorage.getItem('itemData'));
 
-  for (var i = 0; i < complexData.length; i++) {
-    var curData = JSON.parse(localStorage.getItem('itemData'));
+  for (var i = 0; i < curData.length; i++) {
+
     var curHtml = template(curData[i]);
     // need to load data from localStorage
     parentDiv.append(curHtml);
@@ -102,6 +103,7 @@ $(document).ready(function() {
     myStorage.setItem('itemData', JSON.stringify(existingData));
     reload();
     filterSelection("all");
+
   });
 
   $('#newestFirstSort').click(function(event) {
@@ -132,19 +134,18 @@ $(document).ready(function() {
   });
 
 
-
-
 })
 
 
 function reload() {
   $('.row').empty();
-  var source = $("#item-template").html();
-  var template = Handlebars.compile(source);
-  var parentDiv = $(".row");
-  var curData = JSON.parse(localStorage.getItem('itemData'));
-  for (var i = 0; i < curData.length; i++) {
-    var curHtml = template(curData[i]);
+  let source = $("#item-template").html();
+  let template = Handlebars.compile(source);
+  let parentDiv = $(".row");
+  let curData = JSON.parse(localStorage.getItem('itemData'));
+  for (let i = 0; i < curData.length ; i++) {
+
+    let curHtml = template(curData[i]);
     parentDiv.append(curHtml);
 
   }
