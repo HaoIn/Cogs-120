@@ -68,18 +68,58 @@ $(document).ready(function() {
       localStorage.setItem('itemData', JSON.stringify(complexData));
     }
 
-    var source = $("#item-template").html();
-    var template = Handlebars.compile(source);
-    for (let i = 0; i < complexData.length; i++){
-      let curData = JSON.parse(localStorage.getItem('itemData'));
-      if (curData[i].type == "tops"){
-        let parentDiv = $('#topImg');
-        let curHtml = template(curData[i]);
-        parentDiv.append(curHtml);
+    load();
+
+
+
+    $('#event').change(function(){
+      switch ($(this).val()) {
+        case 'Work':
+          emptyImgDiv();
+          load();
+          break;
+        case 'School':
+          emptyImgDiv();
+          load();
+          break;
       }
-    }
-
-
-
-
+    });
 })
+
+function load(){
+  var source = $("#item-template").html();
+  var template = Handlebars.compile(source);
+  var topsArr = [];
+  var bottomsArr = [];
+  var shoesArr = [];
+  var accessoriesArr = [];
+  var parentDivTop = $('#topImg');
+  var parentDivBottom = $('#bottomImg');
+  var parentDivShoes = $('#shoesImg');
+  var parentDivAccessories = $('#accessoriesImg');
+  let existingData = JSON.parse(localStorage.getItem('itemData'));
+
+  for (let i = 0; i < existingData.length; i++){
+    if (existingData[i].type == "tops"){topsArr.push(existingData[i]);}
+    if (existingData[i].type == "bottoms"){bottomsArr.push(existingData[i]);}
+    if (existingData[i].type == "shoes"){shoesArr.push(existingData[i]);}
+    if (existingData[i].type == "accessories"){accessoriesArr.push(existingData[i]);}
+  }
+
+  var topHtml = template(topsArr[Math.floor(Math.random() * topsArr.length)]);
+  var bottomHtml = template(bottomsArr[Math.floor(Math.random() * bottomsArr.length)]);
+  var shoesHtml = template(shoesArr[Math.floor(Math.random() * shoesArr.length)]);
+  var accessoriesHtml = template(accessoriesArr[Math.floor(Math.random() * accessoriesArr.length)]);
+
+  parentDivTop.append(topHtml);
+  parentDivBottom.append(bottomHtml);
+  parentDivShoes.append(shoesHtml);
+  parentDivAccessories.append(accessoriesHtml);
+}
+
+function emptyImgDiv(){
+  $('#topImg').empty();
+  $('#bottomImg').empty();
+  $('#shoesImg').empty();
+  $('#accessoriesImg').empty();
+}
